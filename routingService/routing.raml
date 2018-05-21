@@ -1,0 +1,60 @@
+#%RAML 1.0
+title: RoutingService
+version: v1
+baseUri: https://localhost:8080/RoutingService/
+
+/getContractInfo:
+  description: obtener informacions del contrato
+  post:
+    description: Obtener informaciòn del contrato destino.
+    queryParameters:
+      idFactura:
+        description: Nuemro de factura a pagar
+        required: true
+        type: string
+        example: "001"
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "resultado": 16
+              }
+/addContract:
+  description: agregar un contrato
+  post:
+    description: agregar un contrato.
+    queryParameters:
+      idContrato:
+        description: id contrato
+        required: true
+        type: string
+        example: "001"
+    body:
+      application/json:
+        type: |
+          {
+            "type": "object",
+            "$schema": "http://json-schema.org/draft-03/schema",
+            "id": "http://jsonschema.net",
+            "required": true,
+            "Contract": {
+                "endPoint": "string",
+                "esquema": "string",
+                "tipoServicio": "string",
+                "idServicio": "string",
+                "rutaContrato": "string",
+                "wsdlJson": "string",
+                "headBody": "string",
+                "respExt": "string"
+            }
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "resultado": 0
+              }

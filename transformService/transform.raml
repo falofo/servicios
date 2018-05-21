@@ -1,0 +1,31 @@
+#%RAML 1.0
+title: TransformService
+version: v1
+baseUri: https://localhost:8080/TransformService/
+
+/transformarMsg:
+  description: Transforma el mensaje al tipo de mensajeria esperado por los proveedores de pago.
+  post:
+    description: Transformacion de mensajeria.
+    body:
+      application/json:
+        type: |
+          {
+            "type": "object",
+            "$schema": "http://json-schema.org/draft-03/schema",
+            "id": "http://jsonschema.net",
+            "required": true,
+            "FacturaMsg": {
+                "idFactura": "string",
+                "totalFactura": "string",
+                "msg": "string"
+            }
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "resultado": 16
+              }
