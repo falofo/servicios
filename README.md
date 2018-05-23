@@ -3,6 +3,8 @@
 ### Introducción
 Este es un ejemplo que muestra cómo realizar una composición de servicios con Apache Camel. Para el ejemplo se simula una integración de cuatro servicios con el propósito de realizar pagos de facturas, capaz de realizar integración de nuevos agentes de pago a través de un contrato.
 
+Contrato desacoplado pensado en que cada servicio es independiente y puede prestar su funcionalidad independientemente, de manejo una orquestación para manejar el routing primero luego el transform y mediante el dispatcher llegar al servicio de pago.
+
 El ejemplo se compone de cuatro servicios:
 1. PagosService: recibe una petición para pagar una factura, se encarga de orquestar los demás servicios.
 2. RoutingService: consulta el contrato de servicio (destino) de un archivo properties, además de guardar nuevos contratos.
