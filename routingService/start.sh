@@ -1,3 +1,3 @@
-mvn clean package
-docker build -t routing .
-docker run -d -p 9090:8080 --name routing routing
+mvn clean package -U
+docker build -t routing:latest .
+docker run -d -v /tmp:/tmp -p 9090:9090  --name routing routing

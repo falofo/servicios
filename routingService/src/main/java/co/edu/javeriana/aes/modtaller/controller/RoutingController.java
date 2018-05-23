@@ -32,7 +32,7 @@ public class RoutingController {
             }
             final String idServicio=idFactura.substring(0,3);
             final ClassLoader loader=Thread.currentThread().getContextClassLoader();
-            input = new FileInputStream("contract.properties");
+            input = loader.getResourceAsStream("contract.properties");
             prop.load(input);
             final String conf=prop.getProperty(idServicio);
             final String[] parteConf=conf.split("\\|");
@@ -49,6 +49,7 @@ public class RoutingController {
             return new ResponseEntity<>(resp, HttpStatus.OK);
         }
         catch(Exception e){
+            e.printStackTrace();
             return new ResponseEntity<>("Error transformando mensaje", HttpStatus.BAD_REQUEST);
         }
 

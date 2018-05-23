@@ -1,0 +1,22 @@
+version: '3'
+services:
+  dispatcher:
+    build: "dispatcherService/."
+    hostname: "dispatcherHost"
+    ports:
+      - "7777:7777"
+  routing:
+    build: "routingService/."
+    hostname: "routingHost"
+    ports:
+      - "9090:9090"
+  transform:
+    build: "transformService/."
+    hostname: "transformHost"
+    ports:
+      - "8888:8888"
+  pagos:
+    build: "pagosService/."
+    hostname: "pagosHost"
+    ports:
+      - "8080:8080"

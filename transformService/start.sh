@@ -1,3 +1,3 @@
-mvn clean package
-docker build -t transform .
-docker run -d -p 9090:8080 --name transform transform
+mvn clean package -U
+docker build -t transform:latest .
+docker run -d -v /tmp:/tmp -p 8888:8888  --name transform transform

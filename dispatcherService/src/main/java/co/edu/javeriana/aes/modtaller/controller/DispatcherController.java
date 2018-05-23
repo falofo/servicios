@@ -2,6 +2,7 @@ package co.edu.javeriana.aes.modtaller.controller;
 
 
 import co.edu.javeriana.aes.modtaller.model.Contract;
+import org.apache.commons.text.StringEscapeUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -29,6 +30,7 @@ public class DispatcherController {
     @PostMapping("/pagarFactura")
     ResponseEntity<?> pagar(@RequestBody Contract contrato) {
         String content;
+        contrato.setEsquema(StringEscapeUtils.unescapeHtml4(contrato.getEsquema()));
         try{
             if (contrato.getTipoServicio().equals("1")) {
                 HttpClient httpclient = HttpClients.createDefault();
