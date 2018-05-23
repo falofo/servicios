@@ -1,4 +1,4 @@
-# Composición de Servicios con Camel – Spring Boot – Docker
+# Composición de Servicios con Apache Camel – Spring Boot – Docker
 
 ### Introducción
 Este es un ejemplo que muestra cómo realizar una composición de servicios con Apache Camel. Para el ejemplo se simula una integración de cuatro servicios con el propósito de realizar pagos de facturas, capaz de realizar integración de nuevos agentes de pago a través de un contrato.
